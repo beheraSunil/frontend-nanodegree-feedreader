@@ -54,13 +54,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('click working', function() {
-            var divClassInit = $('body').hasClass('menu-hidden');
             $('.menu-icon-link').trigger("click");
             var divClassVisible = $('body').hasClass('menu-hidden');
-            expect(divClassInit).not.toBe(divClassVisible);
+            expect(divClassVisible).toBe(false);
             $('.menu-icon-link').trigger("click");
             var divClassHidden = $('body').hasClass('menu-hidden');
-            expect(divClassVisible).not.toBe(divClassHidden);
+            expect(divClassHidden).toBe(true);
         });
     });
 
@@ -78,7 +77,7 @@ $(function() {
 
         it('at least one entires is availble', function(done) {
             var articles = $(".feed").children().length;
-            expect(articles).toBeGreaterThan(1);
+            expect(articles).toBeGreaterThan(0);
             done();
         });
     });
