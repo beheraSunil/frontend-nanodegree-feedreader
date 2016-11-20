@@ -34,7 +34,7 @@ $(function() {
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name).not.toEqual("");
             }
-        })
+        });
 
     });
 
@@ -45,8 +45,8 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('hidden initially', function() {
-            var divClass = $('body').attr('class');
-            expect(divClass).toBe("menu-hidden");
+            var divClass = $('body').hasClass('menu-hidden');
+            expect(divClass).toBe(true);
         });
         /* Test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -54,12 +54,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('click working', function() {
-            var divClassInit = $('body').attr('class');
+            var divClassInit = $('body').hasClass('menu-hidden');
             $('.menu-icon-link').trigger("click");
-            var divClassVisible = $('body').attr('class');
+            var divClassVisible = $('body').hasClass('menu-hidden');
             expect(divClassInit).not.toBe(divClassVisible);
             $('.menu-icon-link').trigger("click");
-            var divClassHidden = $('body').attr('class');
+            var divClassHidden = $('body').hasClass('menu-hidden');
             expect(divClassVisible).not.toBe(divClassHidden);
         });
     });
